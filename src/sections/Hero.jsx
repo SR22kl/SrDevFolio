@@ -1,7 +1,28 @@
 import React from "react";
 import { words } from "../constants";
+import Button from "../components/Button";
+import HeroExperience from "../components/Models/room/HeroExperience";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 const Hero = () => {
+  useGSAP(() => {
+    gsap.fromTo(
+      ".hero-text h1",
+      {
+        y: 100,
+        opacity: 0,
+      },
+      {
+        y: 0,
+        opacity: 1,
+        stagger: 1,
+        duration: 1,
+        delay: 0.5,
+        ease: "power2.inOut",
+      },
+    );
+  });
   return (
     <>
       <section id="hero" className="relative overflow-hidden">
@@ -38,13 +59,22 @@ const Hero = () => {
                 <h1>That Deliver Results</h1>
               </div>
               <p className="text-white-50 md:text-xl relative z-10">
-                Hi, I'm Sumit, a Full Stack Developer with a passion for
-                code.
+                Hi, I'm Sumit, a Full Stack Developer with a passion for code.
               </p>
+              <Button
+                text="See my work"
+                id="button"
+                className="md:w-80 md:h-16 w-60 h-12"
+              />
             </div>
           </header>
 
-          {/* RIGHT: HERO CONTENT */}
+          {/* RIGHT: 3D MODEL */}
+          <figure>
+            <div className="hero-3d-layout">
+              <HeroExperience />
+            </div>
+          </figure>
         </div>
       </section>
     </>
