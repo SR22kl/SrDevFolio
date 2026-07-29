@@ -420,8 +420,8 @@ section {
     left: -100%;
   }
 }
-/* marquee end */
 
+/* marquee end */
 .card {
   --start: 0;
   position: relative;
